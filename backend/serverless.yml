@@ -24,6 +24,7 @@ provider:
     S3_BUCKET: serverless-attachments-${self:provider.stage}
     SIGNED_URL_EXPIRATION: 300
 
+
 custom:
   dynamodb:
     start:
@@ -180,11 +181,9 @@ resources:
           Id: Policy
           Version: '2012-10-17'
           Statement:
-            - Sid: PublicReadWriteBucketPolicy
+            - Sid: PublicReadForGetBucketObjects
               Effect: Allow
               Principal: '*' # Anyone
-              Action:
-                - s3:GetObject
-                - s3:PutObject
+              Action: s3:*
               Resource: arn:aws:s3:::${self:provider.environment.S3_BUCKET}/*
         Bucket: !Ref AttachmentBucket
