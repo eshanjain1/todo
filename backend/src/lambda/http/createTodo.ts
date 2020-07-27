@@ -17,10 +17,13 @@ const theNewTODO: CreateTodoRequest = JSON.parse(event.body);
     return {
       statusCode: 400,
       body: JSON.stringify({
-        error: 'name is empty'
+        error: 'ERROR: The name is empty.'
       })
     };
   }
+
+
+
 
   const todo = await createTodo(event, theNewTODO);
 

@@ -9,7 +9,9 @@ export const handler: APIGatewayProxyHandler = async (event: APIGatewayProxyEven
 
 
 
-const signedUrl = generateUploadUrl(event);
+const theSignedUrl = generateUploadUrl(event);
+
+
 
   return {
     statusCode: 202,
@@ -18,7 +20,7 @@ const signedUrl = generateUploadUrl(event);
       'Access-Control-Allow-Credentials': true
     },
     body: JSON.stringify({
-      uploadUrl: signedUrl
+      uploadUrl: theSignedUrl
     })
   };
 }
