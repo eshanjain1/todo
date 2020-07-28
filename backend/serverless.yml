@@ -16,12 +16,12 @@ provider:
   runtime: nodejs8.10
 
   stage: ${opt:stage, 'dev'}
-  region: ${opt:region, 'us-east-1'}
+  region: ${opt:region, 'us-west-1'}
 
   environment:
     TODOS_TABLE: serverless-todos-table-prod-${self:provider.stage}
     INDEX_NAME: UserIdIndex
-    S3_BUCKET: serverless-attachments-${self:provider.stage}
+    S3_BUCKET: eshan-serverless-project-${self:provider.stage}
     SIGNED_URL_EXPIRATION: 300
 
 
