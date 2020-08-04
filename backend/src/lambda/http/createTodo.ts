@@ -8,8 +8,7 @@ import { createTodo } from '../../businessLogic/todos';
 
 export const handler: APIGatewayProxyHandler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
 
-const theNewTODO: CreateTodoRequest = JSON.parse(event.body);
-
+const theNewTODO: CreateTodoRequest = typeof event.body === "string" ? JSON.parse(event.body) : event.body;
 
 
 
